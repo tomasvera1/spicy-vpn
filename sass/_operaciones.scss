@@ -1,0 +1,57 @@
+$padding-top: 150px;
+$padding-bottom: 40px;
+$test-color: main;
+
+/*-------------------------------- 
+Operacion aplicada para el desafio (linea 46 en 'main.scss' / linea 57 en 'main.css') 
+----------------------------------*/
+
+.section 
+ {
+    position: relative;
+    padding-top: $padding-top - 50;
+    padding-bottom: $padding-bottom * 2;
+}
+
+/*-----------------------------
+ Otras operaciones de prueba 
+------------------------------*/
+
+/* Bucle */
+
+button {
+    @if $test-color == main {
+        background-color: rgb(160, 14, 160);
+    }@else if $test-color == secondary {
+        background-color: #ce110a;
+    }@else if $test-color == testing {
+        background-color: #0ac8ce;
+    }@else {
+        background-color: rgb(160, 14, 160);
+    }
+}
+
+/* Each */
+
+@each $banner in banner99,banner999,banner9999 {
+    .#{$banner}-test {
+        background-image: url('../images/#{$banner}.jpg');
+    }
+}
+
+/* Mixin */
+
+@mixin sizes($width,$height) {
+    height: $height;
+    width:$width;
+}
+
+@mixin responsive($padding,$margin) {
+    padding: $padding;
+    margin: $margin;
+}
+
+.container-fluid {
+    @include sizes(100%,100%);
+    @include responsive(2px,2px)
+}
